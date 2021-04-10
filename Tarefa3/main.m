@@ -11,33 +11,32 @@ fprintf("6 - Imagem Fig0241_conv.png\n");
 fprintf("7 - Imagem Fig0232a.tif\n");
 fprintf("8 - Imagem Fig0228b.png\n");
 fprintf("9 - Imagem cameraman.tif\n")
-fprintf("10 - Imagem barbara_gray.tif\n");
+fprintf("10 - Imagem barbara_gray.bmp\n");
 numberSelectImage = input("Digite a Opção da Imagem: ");
-
 switch numberSelectImage
          case 0 
                   numberSelectImage = input("Digite Nome da Imagem: ");
                   inputImage = imread(numberSelectImage);
          case 1
-                  inputImage = imread('images/texto_xerox.jpg');
+                  inputImage = imread('images/input/texto_xerox.jpg');
          case 2
-                  inputImage = imread('images/lena.png');
+                  inputImage = imread('images/input/lena.png');
          case 3
-                  inputImage = imread('images/lena_sal_e_pimenta.jpg');
+                  inputImage = imread('images/input/lena_sal_e_pimenta.jpg');
          case 4
-                  inputImage = imread('images/lena_cinza.bmp');
+                  inputImage = imread('images/input/lena_cinza.bmp');
          case 5
-                  inputImage = imread('images/Fig0241.tif');
+                  inputImage = imread('images/input/Fig0241.tif');
          case 6
-                  inputImage = imread('images/Fig0241_conv.png');
+                  inputImage = imread('images/input/Fig0241_conv.png');
          case 7
-                  inputImage = imread('images/Fig0232a.tif');
+                  inputImage = imread('images/input/Fig0232a.tif');
          case 8
-                  inputImage = imread('images/Fig0228b.png');
+                  inputImage = imread('images/input/Fig0228b.png');
          case 9
-                  inputImage = imread('images/cameraman.tif');
+                  inputImage = imread('images/input/cameraman.tif');
          case 10
-                  inputImage = imread('images/barbara_gray.bmp');
+                  inputImage = imread('images/input/barbara_gray.bmp');
          otherwise
                   fprintf("Opção Inválida");
 endswitch
@@ -61,7 +60,9 @@ elseif numberOperation == 2
 
 endif
 
+# Salvando a Imagem
 if numberOperation == 1 || numberOperation == 2
          figure, imshow(outputImage);
-         imwrite(outputImage, 'images_result/image_result.png');
+         imwrite(outputImage, 'images_result/output/image_result.png');
 endif
+
