@@ -55,8 +55,6 @@ function arquivo2 = redimensionar(arquivo1, tipo, num1, num2)
             imageOriginalLineColumn(sizeImageOriginalAxisY+1, :) = imageOriginalLineColumn(sizeImageOriginalAxisY, :);
             imageOriginalLineColumn(:, sizeImageOriginalAxisX+1) = imageOriginalLineColumn(:, sizeImageOriginalAxisX);
 
-             
-         # [Aumentando]
          for posV = 0:sizeImageResizedAxisV-1
                  for posU = 0:sizeImageResizedAxisU-1
                           
