@@ -9,7 +9,7 @@ function corrigida = corr_gama(imagem, c, gama);
 
          imageCorrected = uint8(-1 * ones(sizeImageAxisY, sizeImageAxisX));
 
-         r = double(imagem)/double((max(max(imagem))));
+         r = double(imagem)/double((max(max(max(imagem)))));
          imageCorrected = c.*(r.^gama);
 
          corrigida = imageCorrected;
