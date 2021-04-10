@@ -63,6 +63,7 @@ endif
 # Salvando a Imagem
 if numberOperation == 1 || numberOperation == 2
          figure, imshow(outputImage);
-         imwrite(outputImage, 'images_result/output/image_result.png');
+         imwrite(outputImage, 'images/output/image_result.png');
+         'images/output/image_result.png'
 endif
 
