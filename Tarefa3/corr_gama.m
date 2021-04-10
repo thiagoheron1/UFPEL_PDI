@@ -1,9 +1,9 @@
 function corrigida = corr_gama(imagem, c, gama);
-    
+
          axisY = 1;
          axisX = 2;
-    
-         sizeImage = size(image);
+
+         sizeImage = size(imagem);
          sizeImageAxisY = sizeImage(axisY);
          sizeImageAxisX = sizeImage(axisX);
 
