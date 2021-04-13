@@ -1,5 +1,6 @@
 function cisalhada = cisalhamento(imagem, cv, ch)
-
+         imagem = imread(imagem);
+         
          axisW= 1;
          axisV = 2;
 
@@ -9,29 +10,41 @@ function cisalhada = cisalhamento(imagem, cv, ch)
 
          imageCorrected = uint8(-1 * ones(sizeImageAxisW, sizeImageAxisV));
 
-         if cv > 0
+         if cv > 0 && ch ==0
                   for w =1:sizeImageAxisW;
                            for v =1:sizeImageAxisV;
-                                    x =  int32(v + cv * w);
+                                    x =  floor(v + cv * w);
                                     y = w;
 
                                     if (x <= sizeImageAxisV && y <= sizeImageAxisW)
-                                             imageCorrected(x, y) = imagem(v, w);
+                                             imageCorrected(y, x) = imagem(w, v);
                                     endif
                            endfor
                   endfor
-         endif
 
-         if ch > 0
+         elseif ch > 0 && cv == 0
                   for w =1:sizeImageAxisW;
                            for v =1:sizeImageAxisV;
                                     x =  v;
-                                    y = int32(ch * v + w);
+                                    y = floor(ch * v + w);
                                     if (x <= sizeImageAxisV && y <= sizeImageAxisW)
-                                             imageCorrected(x, y) = imagem(v, w);
+                                             imageCorrected(y, x) = imagem(w, v);
                                     endif
                            endfor
                   endfor
-         endif
+         
+         
+         else
+                  for w =1:sizeImageAxisW;
+                           for v =1:sizeImageAxisV;
+                                    x =  floor(v + cv * w);
+                                    y = floor(ch * v + w);
+                                    if (x <= sizeImageAxisV && y <= sizeImageAxisW)
+                                             imageCorrected(y, x) = imagem(w, v);
+                                    endif
+                           endfor
+                  endfor
+         
+         endif 
          cisalhada = imageCorrected;
 endfunction
