@@ -45,7 +45,7 @@ function imagem_saida = convolucao(imagem, W);
                            if sumW > 0
                                     A = A/sumW;
                            elseif
-                                    A = imagem(y, x) - A;
+                                    A = (imagem(y, x) - A);
                            endif
                            sizeImageConvolucao(y, x) = A;
                   endfor
