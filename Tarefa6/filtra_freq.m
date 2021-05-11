@@ -55,14 +55,14 @@ function img_filtrada = filtra_freq(imagem, mascara)
 
       mascara_apply = ones(size(imageT,1), size(imageT,2));
 
-      k=[];
-      k=size(imageST,1)/2-raio:size(imageST,1)/2+raio;
-      linhaInicial = k(1);
-      linhaFinal = k(1) + size(k,2) - 1;
+      matriz_elimina = [];
+      matriz_elimina = size(imageST, 1)/2-raio:size(imageST, 1)/2+raio;
+      linhaInicial = matriz_elimina(1);
+      linhaFinal = matriz_elimina(1) + size(matriz_elimina, 2) - 1;
 
       for i=linhaInicial:linhaFinal
-        for j = 1: size(mascara_apply,2);
-              mascara_apply(i,j) = 0;
+        for j = 1: size(mascara_apply, 2);
+              mascara_apply(i, j) = 0;
           endfor
       endfor
 
@@ -115,14 +115,18 @@ function img_filtrada = filtra_freq(imagem, mascara)
   imshow(mascara_apply, []); title('Mascara');
 
   # Reconstrua a imagem filtrada
-  #subplot(2, 3, 5)
+  # subplot(2, 3, 5)
   imageFiltrada = imageST.*mascara_apply;
-  #imshow(log(abs(imageFiltrada)), []); title('Mascara * Dominio');
+  # imshow(log(abs(imageFiltrada)), []); title('Mascara * Dominio');
 
   # Coloque o espectro novamente na posição original com  ifftshift
   subplot(2, 3, 6)
   I2 = ifft2(ifftshift(imageFiltrada));
-  figure, imshow(I2,[]); title('TIF .* Mascara')
+  imshow(I2,[]); title('TIF .* Mascara')
 
-  return;
+  imwrite(I2, 'images/output/result.png');
+
+  'images/output/result.png'
+
+  return ;
 endfunction
