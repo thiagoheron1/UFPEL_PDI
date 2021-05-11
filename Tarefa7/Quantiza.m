@@ -15,7 +15,7 @@ function result = Quantiza(entrada, saida, bitsY, bitsCb, bitsCr)
   imageQuantizada(:, :, 2) = QCb;
   imageQuantizada(:, :, 3) = QCr;
 
-  result = ycbcr2rgb(imageQuantizada)
+  result = ycbcr2rgb(imageQuantizada);
 
   figure,imshow(imageInput); title("Image RGB");
   figure,imshow(YCbCr); title("Image YCbCr");
